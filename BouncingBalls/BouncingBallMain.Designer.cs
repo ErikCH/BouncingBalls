@@ -30,10 +30,12 @@
         private void InitializeComponent()
         {
             this.mainPB = new System.Windows.Forms.PictureBox();
-            this.dyLabel = new System.Windows.Forms.Label();
-            this.dxLabel = new System.Windows.Forms.Label();
-            this.dxLabelA = new System.Windows.Forms.Label();
-            this.dyLabelA = new System.Windows.Forms.Label();
+            this.addBall = new System.Windows.Forms.Button();
+            this.resetBall = new System.Windows.Forms.Button();
+            this.collisionsLbl = new System.Windows.Forms.Label();
+            this.numOfBallsLbl = new System.Windows.Forms.Label();
+            this.numOfBallsLblText = new System.Windows.Forms.Label();
+            this.collisionsLblText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainPB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,51 +50,77 @@
             this.mainPB.TabStop = false;
             this.mainPB.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPB_Paint);
             // 
-            // dyLabel
+            // addBall
             // 
-            this.dyLabel.AutoSize = true;
-            this.dyLabel.Location = new System.Drawing.Point(90, 506);
-            this.dyLabel.Name = "dyLabel";
-            this.dyLabel.Size = new System.Drawing.Size(21, 13);
-            this.dyLabel.TabIndex = 1;
-            this.dyLabel.Text = "dy:";
+            this.addBall.Location = new System.Drawing.Point(472, 456);
+            this.addBall.Name = "addBall";
+            this.addBall.Size = new System.Drawing.Size(108, 23);
+            this.addBall.TabIndex = 5;
+            this.addBall.Text = "Add Ball";
+            this.addBall.UseVisualStyleBackColor = true;
+            this.addBall.Click += new System.EventHandler(this.addBall_Click);
             // 
-            // dxLabel
+            // resetBall
             // 
-            this.dxLabel.AutoSize = true;
-            this.dxLabel.Location = new System.Drawing.Point(27, 506);
-            this.dxLabel.Name = "dxLabel";
-            this.dxLabel.Size = new System.Drawing.Size(21, 13);
-            this.dxLabel.TabIndex = 2;
-            this.dxLabel.Text = "dx:";
+            this.resetBall.Location = new System.Drawing.Point(605, 456);
+            this.resetBall.Name = "resetBall";
+            this.resetBall.Size = new System.Drawing.Size(108, 23);
+            this.resetBall.TabIndex = 6;
+            this.resetBall.Text = "Reset Balls";
+            this.resetBall.UseVisualStyleBackColor = true;
+            this.resetBall.Click += new System.EventHandler(this.resetBall_Click);
             // 
-            // dxLabelA
+            // collisionsLbl
             // 
-            this.dxLabelA.AutoSize = true;
-            this.dxLabelA.Location = new System.Drawing.Point(45, 506);
-            this.dxLabelA.Name = "dxLabelA";
-            this.dxLabelA.Size = new System.Drawing.Size(35, 13);
-            this.dxLabelA.TabIndex = 3;
-            this.dxLabelA.Text = "label1";
+            this.collisionsLbl.AutoSize = true;
+            this.collisionsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collisionsLbl.Location = new System.Drawing.Point(651, 260);
+            this.collisionsLbl.Name = "numOfBallsLbl";
+            this.collisionsLbl.Size = new System.Drawing.Size(0, 29);
+            this.collisionsLbl.TabIndex = 10;
+            this.collisionsLbl.Text = "0";
             // 
-            // dyLabelA
+            // numOfBallsLbl
             // 
-            this.dyLabelA.AutoSize = true;
-            this.dyLabelA.Location = new System.Drawing.Point(118, 506);
-            this.dyLabelA.Name = "dyLabelA";
-            this.dyLabelA.Size = new System.Drawing.Size(35, 13);
-            this.dyLabelA.TabIndex = 4;
-            this.dyLabelA.Text = "label2";
+            this.numOfBallsLbl.AutoSize = true;
+            this.numOfBallsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numOfBallsLbl.Location = new System.Drawing.Point(651, 102);
+            this.numOfBallsLbl.Name = "collisionsLbl";
+            this.numOfBallsLbl.Size = new System.Drawing.Size(0, 29);
+            this.numOfBallsLbl.TabIndex = 9;
+            this.numOfBallsLbl.Text = "0";
+            // 
+            // numOfBallsLblText
+            // 
+            this.numOfBallsLblText.AutoSize = true;
+            this.numOfBallsLblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numOfBallsLblText.Location = new System.Drawing.Point(449, 102);
+            this.numOfBallsLblText.Name = "numOfBallsLblText";
+            this.numOfBallsLblText.Size = new System.Drawing.Size(196, 29);
+            this.numOfBallsLblText.TabIndex = 8;
+            this.numOfBallsLblText.Text = "Number Of Balls:";
+            // 
+            // collisionsLblText
+            // 
+            this.collisionsLblText.AutoSize = true;
+            this.collisionsLblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collisionsLblText.Location = new System.Drawing.Point(520, 260);
+            this.collisionsLblText.Name = "collisionsLblText";
+            this.collisionsLblText.Size = new System.Drawing.Size(125, 29);
+            this.collisionsLblText.TabIndex = 11;
+            this.collisionsLblText.Text = "Collisions:";
             // 
             // BouncingBallMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 553);
-            this.Controls.Add(this.dyLabelA);
-            this.Controls.Add(this.dxLabelA);
-            this.Controls.Add(this.dxLabel);
-            this.Controls.Add(this.dyLabel);
+            this.Controls.Add(this.collisionsLblText);
+            this.Controls.Add(this.collisionsLbl);
+            this.Controls.Add(this.numOfBallsLbl);
+            this.Controls.Add(this.numOfBallsLblText);
+            this.Controls.Add(this.resetBall);
+            this.Controls.Add(this.addBall);
             this.Controls.Add(this.mainPB);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -109,10 +137,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox mainPB;
-        private System.Windows.Forms.Label dyLabel;
-        private System.Windows.Forms.Label dxLabel;
-        private System.Windows.Forms.Label dxLabelA;
-        private System.Windows.Forms.Label dyLabelA;
+        private System.Windows.Forms.Button addBall;
+        private System.Windows.Forms.Button resetBall;
+        private System.Windows.Forms.Label collisionsLbl;
+        private System.Windows.Forms.Label numOfBallsLbl;
+        private System.Windows.Forms.Label numOfBallsLblText;
+        private System.Windows.Forms.Label collisionsLblText;
 
     }
 }

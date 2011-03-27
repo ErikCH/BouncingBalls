@@ -13,32 +13,37 @@ namespace BouncingBalls
 {
     public partial class BouncingBallMain : Form
     {
-        private int dx = 0;
-        private int dy = 0;
 
-      
-        SolidBrush solid = new SolidBrush(Color.Blue);
-        Thread t;
-
+        private const int TIMER_SLEEP = 15;
+        
+        private Thread t;
+        private List<Ball> balls;
+       
+        private Random rand;
         public BouncingBallMain()
         {
-            
-            t = new Thread(new ThreadStart(Run));
-            
+
+
+
+            rand = new Random();
             InitializeComponent();
+            mainPB.Invalidate();
+            t = new Thread(new ThreadStart(Run));
+            balls = new List<Ball>();
             t.Start();
-            
+                
             
         }
 
         private void mainPB_Paint(object sender, PaintEventArgs e)
         {
+            
+           
+            foreach(Ball b in balls)
+                b.paint(e.Graphics);
+            
 
-            
-            
-            e.Graphics.FillEllipse(solid, dx, dy, 25, 25);
-            dxLabelA.Text = dx.ToString();
-            dyLabelA.Text = mainPB.Bounds.Right.toS
+           numOfBallsLbl.Text = balls.Count.ToString();
             
         }
 
@@ -48,17 +53,17 @@ namespace BouncingBalls
         {
             while (true)
             {
-                //dx = checkdx();
-                //dy = checkdy();
-                dx += 1;
-                dy += 1;
+                foreach (Ball b in balls)
+                    b.Go();
+                
                 mainPB.Invalidate(); 
-                Thread.Sleep(20);
+                Thread.Sleep(TIMER_SLEEP);
                
             }
 
         }
 
+        
         
 
         private void BouncingBallMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,6 +71,20 @@ namespace BouncingBalls
             t.Abort();
         }
 
+        private void addBall_Click(object sender, EventArgs e)
+        {
+
+            balls.Add(new Ball(rand.Next(mainPB.Bounds.Width), rand.Next(mainPB.Bounds.Height), mainPB));
+        }
+
+        private void resetBall_Click(object sender, EventArgs e)
+        {
+            balls.Clear();
+        }
+
+        
+
+        
 
 
 
