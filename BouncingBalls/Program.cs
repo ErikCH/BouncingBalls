@@ -1,4 +1,10 @@
-﻿using System;
+﻿// By: Erik Hanchett
+// Date:3/28/2011
+// Assignment: #4
+// Exercise Multithreading
+
+// Entry point to program. 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;

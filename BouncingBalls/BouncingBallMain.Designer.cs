@@ -48,6 +48,7 @@
             this.mainPB.Size = new System.Drawing.Size(416, 453);
             this.mainPB.TabIndex = 0;
             this.mainPB.TabStop = false;
+            this.mainPB.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mainPB_MouseClick);
             this.mainPB.Paint += new System.Windows.Forms.PaintEventHandler(this.mainPB_Paint);
             // 
             // addBall
@@ -75,8 +76,8 @@
             this.collisionsLbl.AutoSize = true;
             this.collisionsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.collisionsLbl.Location = new System.Drawing.Point(651, 260);
-            this.collisionsLbl.Name = "numOfBallsLbl";
-            this.collisionsLbl.Size = new System.Drawing.Size(0, 29);
+            this.collisionsLbl.Name = "collisionsLbl";
+            this.collisionsLbl.Size = new System.Drawing.Size(26, 29);
             this.collisionsLbl.TabIndex = 10;
             this.collisionsLbl.Text = "0";
             // 
@@ -85,8 +86,8 @@
             this.numOfBallsLbl.AutoSize = true;
             this.numOfBallsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numOfBallsLbl.Location = new System.Drawing.Point(651, 102);
-            this.numOfBallsLbl.Name = "collisionsLbl";
-            this.numOfBallsLbl.Size = new System.Drawing.Size(0, 29);
+            this.numOfBallsLbl.Name = "numOfBallsLbl";
+            this.numOfBallsLbl.Size = new System.Drawing.Size(26, 29);
             this.numOfBallsLbl.TabIndex = 9;
             this.numOfBallsLbl.Text = "0";
             // 
@@ -127,6 +128,7 @@
             this.MaximizeBox = false;
             this.Name = "BouncingBallMain";
             this.Text = "Bouncing Ball";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BouncingBallMain_MouseClick);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BouncingBallMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mainPB)).EndInit();
             this.ResumeLayout(false);
