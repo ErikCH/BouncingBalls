@@ -1,6 +1,6 @@
 ﻿// By: Erik Hanchett
 // Date:3/28/2011
-// Assignment: #4
+// Assignment: #5
 // Exercise Multithreading
 
 // Entry point to program. 

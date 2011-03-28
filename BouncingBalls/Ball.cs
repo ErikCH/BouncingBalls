@@ -1,6 +1,6 @@
 ﻿// By: Erik Hanchett
 // Date:3/28/2011
-// Assignment: #4
+// Assignment: #5
 // Exercise Multithreading
 
 // Ball class has info about Ball, properties, direction, size, etc;
@@ -15,6 +15,7 @@ namespace BouncingBalls
 {
     public class Ball
     {
+        //properties
         public int  dx { get; set; }
         public int dy { get; set; }
         public int speedx { get; set; }
@@ -33,24 +34,28 @@ namespace BouncingBalls
         private const double EDGE3 = 2.1;
         
 
+        //constructor 
         public Ball(int dx, int dy,  PictureBox p)
         {
             this.dx = dx;
             this.dy = dy;
             randonGen = new Random();
-            randomSpeedAndDirection();
-            randomSize();
+            RandomSpeedAndDirection();
+            RandomSize();
             this.mainPB = p;
             solid = new SolidBrush(CreateRandomColor());
             
         }
 
-        private void randomSize()
+        //sets random size
+        private void RandomSize()
         {
             size = randonGen.Next(LOWER_SIZE_LIMIT, UPPER_SIZE_LIMIT);
             
         }
-        private void randomSpeedAndDirection()
+
+        //sets random speed and direction
+        private void RandomSpeedAndDirection()
         {
             speedx = randonGen.Next(LOWER_RANGE, UPPER_RANGE);
             speedy = speedx;
@@ -61,15 +66,17 @@ namespace BouncingBalls
                 speedy *= -1;
         }
 
+        //Moves ball
         public void Go()
         {
-            checkdx();
-            checkdy();
+            Checkdx();
+            Checkdy();
             dx += speedx;
             dy += speedy;
         }
 
-        private void checkdx()
+        //changes directions for x
+        private void Checkdx()
         {
 
             if (mainPB.Bounds.Right < dx + size * EDGE1)
@@ -81,6 +88,7 @@ namespace BouncingBalls
 
         }
 
+        //creates random color
         private Color CreateRandomColor()
         {
             
@@ -92,13 +100,14 @@ namespace BouncingBalls
 
 
 
-        public void paint(Graphics c)
+        public void Paint(Graphics c)
         {
             c.FillEllipse(solid, dx, dy, size, size);
             
+            
         }
 
-        private void checkdy()
+        private void Checkdy()
         {
             if (mainPB.Bounds.Bottom < dy + size * EDGE3)
                 speedy *= -1;

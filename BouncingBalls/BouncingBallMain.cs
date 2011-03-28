@@ -1,6 +1,6 @@
 ﻿// By: Erik Hanchett
 // Date:3/28/2011
-// Assignment: #4
+// Assignment: #5
 // Exercise Multithreading
 
 // GUI Class that contronls the properties of the window. 
@@ -18,6 +18,8 @@ namespace BouncingBalls
 {
     public partial class BouncingBallMain : Form
     {
+
+        //properties
         private const string ERROR_MESSAGE = "Sorry can only have up to 20 balls at one time!";
         private const int TIMER_SLEEP = 15;
         private const int MAXIMUM_BALLS = 20;
@@ -26,14 +28,15 @@ namespace BouncingBalls
         private List<Ball> balls;
        
         private Random rand;
+
+        //constructor
         public BouncingBallMain()
         {
-
-
 
             rand = new Random();
             InitializeComponent();
             mainPB.Invalidate();
+         //new thread
             t = new Thread(new ThreadStart(Run));
             balls = new List<Ball>();
             t.Start();
@@ -41,12 +44,13 @@ namespace BouncingBalls
             
         }
 
+        //paints graphic
         private void mainPB_Paint(object sender, PaintEventArgs e)
         {
             
            
             foreach(Ball b in balls)
-                b.paint(e.Graphics);
+                b.Paint(e.Graphics);
             
 
            numOfBallsLbl.Text = balls.Count.ToString();
@@ -55,6 +59,7 @@ namespace BouncingBalls
 
         
 
+        //this is used with the thread to run events for picturebox
         private void Run()
         {
             while (true)
@@ -71,15 +76,16 @@ namespace BouncingBalls
 
         
         
-
+        //closes windows stops thread
         private void BouncingBallMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Abort();
         }
 
+        //different events to add balls
         private void addBall_Click(object sender, EventArgs e)
         {
-            addBalls();
+            AddBalls();
         }
 
         private void resetBall_Click(object sender, EventArgs e)
@@ -87,7 +93,8 @@ namespace BouncingBalls
             balls.Clear();
         }
 
-        private void addBalls()
+        //adds balls
+        private void AddBalls()
         {
             if (balls.Count < MAXIMUM_BALLS)
                 balls.Add(new Ball(rand.Next(mainPB.Bounds.Width), rand.Next(mainPB.Bounds.Height), mainPB));
@@ -95,14 +102,19 @@ namespace BouncingBalls
                 MessageBox.Show(ERROR_MESSAGE);
         }
 
+        private void DetectCollision()
+        {
+            
+        }
+
         private void BouncingBallMain_MouseClick(object sender, MouseEventArgs e)
         {
-            addBalls();
+            AddBalls();
         }
 
         private void mainPB_MouseClick(object sender, MouseEventArgs e)
         {
-            addBalls();
+            AddBalls();
         }
         
 

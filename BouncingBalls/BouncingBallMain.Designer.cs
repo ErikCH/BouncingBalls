@@ -32,10 +32,8 @@
             this.mainPB = new System.Windows.Forms.PictureBox();
             this.addBall = new System.Windows.Forms.Button();
             this.resetBall = new System.Windows.Forms.Button();
-            this.collisionsLbl = new System.Windows.Forms.Label();
             this.numOfBallsLbl = new System.Windows.Forms.Label();
             this.numOfBallsLblText = new System.Windows.Forms.Label();
-            this.collisionsLblText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainPB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,16 +69,6 @@
             this.resetBall.UseVisualStyleBackColor = true;
             this.resetBall.Click += new System.EventHandler(this.resetBall_Click);
             // 
-            // collisionsLbl
-            // 
-            this.collisionsLbl.AutoSize = true;
-            this.collisionsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collisionsLbl.Location = new System.Drawing.Point(651, 260);
-            this.collisionsLbl.Name = "collisionsLbl";
-            this.collisionsLbl.Size = new System.Drawing.Size(26, 29);
-            this.collisionsLbl.TabIndex = 10;
-            this.collisionsLbl.Text = "0";
-            // 
             // numOfBallsLbl
             // 
             this.numOfBallsLbl.AutoSize = true;
@@ -101,23 +89,11 @@
             this.numOfBallsLblText.TabIndex = 8;
             this.numOfBallsLblText.Text = "Number Of Balls:";
             // 
-            // collisionsLblText
-            // 
-            this.collisionsLblText.AutoSize = true;
-            this.collisionsLblText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collisionsLblText.Location = new System.Drawing.Point(520, 260);
-            this.collisionsLblText.Name = "collisionsLblText";
-            this.collisionsLblText.Size = new System.Drawing.Size(125, 29);
-            this.collisionsLblText.TabIndex = 11;
-            this.collisionsLblText.Text = "Collisions:";
-            // 
             // BouncingBallMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 553);
-            this.Controls.Add(this.collisionsLblText);
-            this.Controls.Add(this.collisionsLbl);
             this.Controls.Add(this.numOfBallsLbl);
             this.Controls.Add(this.numOfBallsLblText);
             this.Controls.Add(this.resetBall);
@@ -141,10 +117,8 @@
         private System.Windows.Forms.PictureBox mainPB;
         private System.Windows.Forms.Button addBall;
         private System.Windows.Forms.Button resetBall;
-        private System.Windows.Forms.Label collisionsLbl;
         private System.Windows.Forms.Label numOfBallsLbl;
         private System.Windows.Forms.Label numOfBallsLblText;
-        private System.Windows.Forms.Label collisionsLblText;
 
     }
 }
